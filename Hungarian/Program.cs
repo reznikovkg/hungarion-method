@@ -15,18 +15,8 @@ namespace Hungarian
             Console.WriteLine("Ко-во столбцов: ");
             int colNum = int.Parse(Console.ReadLine());
             matrix.setColNum(colNum);
-
-
-            matrix.init();
-            matrix.set();
-            matrix.update();
-            matrix.toCorrect();
-
-            matrix.toLine();
-
-
-            matrix.print();
-
+            
+            matrix.toResultAuto();
 
             Console.ReadKey();
         }
