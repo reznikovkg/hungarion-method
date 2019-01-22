@@ -61,24 +61,31 @@ namespace Hungarian
         /**
          * Печать
          */
-        public void print()
+        public void print(bool line = true)
         {
             Console.WriteLine("");
             Console.WriteLine("");
-
-            for (int i = 0; i < this.strNum; i++)
+            if (line)
             {
-                Console.Write(this.getLineVertical(i) + "\t");
+                for (int i = 0; i < this.colNum; i++)
+                {
+                    Console.Write(this.getLineVertical(i) + "\t");
+                }
+                Console.WriteLine("");
             }
-            Console.WriteLine("");
 
             for (int i = 0; i < this.strNum; i++)
             {
                 for (int j = 0; j < this.colNum; j++)
                 {
                     Console.Write(this.values[i][j].ToString() + "\t");
+                    
                 }
-                Console.Write(this.getLineHorizont(i));
+
+                if (line)
+                {
+                    Console.Write(this.getLineHorizont(i));
+                }
                 Console.WriteLine("");
             }
         }
@@ -143,6 +150,7 @@ namespace Hungarian
                     this.strNum++;
                     this.values.Add(new List<int>());
                     lineHorizont.Add(false);
+                    this.result.Add(0);
                     for (int j = 0; j < this.colNum; j++)
                     {
                         this.values[this.strNum-1].Add(0);
@@ -417,9 +425,37 @@ namespace Hungarian
 
             this.toResult();
 
-            this.print();
+            this.print(false);
         }
 
 
+        /**
+         * Запустить метод автоматически
+         */
+        public void toResultAutoFULL()
+        {
+            this.init();
+
+            this.set();
+            Console.WriteLine("\nПрисвоены значения");
+            this.print();
+
+            this.update();
+            Console.WriteLine("\nДобавлены недостоющие строки/столбцы");
+            this.print();
+
+            this.toCorrect();
+            Console.WriteLine("\nПриведение матрицы");
+            this.print();
+
+            this.checkBeforeResult();
+            Console.WriteLine("\nПолучение результатов");
+            this.print();
+
+            Console.WriteLine("\nОтвет");
+            this.toResult();
+
+            this.print();
+        }
     }
 }

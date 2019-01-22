@@ -16,7 +16,8 @@ namespace Hungarian
             int colNum = int.Parse(Console.ReadLine());
             matrix.setColNum(colNum);
             
-            matrix.toResultAuto();
+            //matrix.toResultAuto();
+            matrix.toResultAutoFULL();
 
             Console.ReadKey();
         }
