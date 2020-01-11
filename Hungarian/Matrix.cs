@@ -59,6 +59,33 @@ namespace Hungarian
         }
 
         /**
+         * Инициализация автомат
+         */
+        public void initAuto()
+        {
+            Random rnd = new Random();
+
+            this.values = new List<List<int>>();
+            for (int i = 0; i < this.strNum; i++)
+            {
+                this.values.Add(new List<int>());
+
+                this.lineHorizont.Add(false);
+                this.result.Add(0);
+
+                for (int j = 0; j < this.colNum; j++)
+                {
+                    this.values[i].Add(rnd.Next(1, 100));
+                }
+            }
+
+            for (int j = 0; j < this.colNum; j++)
+            {
+                this.lineVertical.Add(false);
+            }
+        }
+
+        /**
          * Печать
          */
         public void print(bool line = true)
@@ -416,8 +443,10 @@ namespace Hungarian
          */
         public void toResultAuto()
         {
-            this.init();
-            this.set();
+            this.initAuto();
+
+            //this.init();
+            //this.set();
             this.update();
             this.toCorrect();
 

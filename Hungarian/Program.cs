@@ -8,16 +8,16 @@ namespace Hungarian
         {
             Matrix matrix = new Matrix();
 
-            Console.WriteLine("Ко-во строк: ");
+            Console.WriteLine("Кол-во строк: ");
             int strNum = int.Parse(Console.ReadLine());
             matrix.setStrNum(strNum);
 
-            Console.WriteLine("Ко-во столбцов: ");
+            Console.WriteLine("Кол-во столбцов: ");
             int colNum = int.Parse(Console.ReadLine());
             matrix.setColNum(colNum);
             
-            //matrix.toResultAuto();
-            matrix.toResultAutoFULL();
+            matrix.toResultAuto();
+            //matrix.toResultAutoFULL();
 
             Console.ReadKey();
         }
